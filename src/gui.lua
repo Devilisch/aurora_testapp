@@ -5,6 +5,7 @@ gui = {
 }
 
 function gui.readCommand()
+  io.write('Enter command: ')
   gui.command[1] = io.read(1)
   if gui.command[1] == 'm' then
     gui.command[2] = io.read("*number")
@@ -15,5 +16,5 @@ function gui.readCommand()
   end
   io.read(1)
   gui.status = gui.command[1]
-  io.write('Input command ', gui.command[1], ':', gui.command[2], ':', gui.command[3], ':', gui.command[4],'\n')
+  io.write('Input command ', gui.command[1], ' ', gui.command[2], ' ', gui.command[3], ' ', gui.command[4],'\n')
 end
