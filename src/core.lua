@@ -1,7 +1,9 @@
 core = {
-  N = 10, -- N > 0
-  M = 10, -- M >= 10
-  map = {} -- основная таблица с значениями
+  score = 0, -- счёт
+  N = 4, -- N > 0
+  M = 8, -- M >= 10
+  map = {}, -- основная таблица с значениями
+  mapVariables = {'A', 'B', 'C', 'D', 'E', 'F'} -- "палитра" основной таблицы
 }
 
 -- создание двумерного массива
@@ -14,6 +16,13 @@ end
 
 function core.init()
 -- заполнение поля рандомными объектами
+  for i = 1, core.N do
+    for j = 1, core.M do
+      if core.map[i][j] == 0 then
+         core.map[i][j] = core.mapVariables[math.random(#core.mapVariables)]
+      end
+    end
+  end
 end
 
 function core.tick()
